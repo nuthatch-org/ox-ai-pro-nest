@@ -41,7 +41,7 @@ Use the nuthatch Graph build, version 5.3.0 or later, with an archive Polygon RP
 
 ```sh
 export NUTHATCH_RPC='YOUR_POLYGON_RPC'
-./nuthatch dev --dir . --listen 127.0.0.1:8288 --seal-direct --window 2000 --poll-interval 15s --no-admin
+./nuthatch dev --dir . --listen 127.0.0.1:8288 --seal-direct --window 2000 --poll-interval 5m --no-admin
 ```
 
 GraphQL is at `/subgraphs/id/QmbzwJnre963f9wT9VCJPede69vaniAKWVHzUEsAmBfrHG`.
