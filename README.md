@@ -50,7 +50,7 @@ RPC credentials belong in the environment, never in the nest.
 
 ## Verification
 
-`tests/verify-events.py` independently decodes raw Polygon logs and compares each exposed field with the GraphQL endpoint. The initial 100,000-block sample matched 2,450 records without differences. Accounting-query refusal checks passed. CampaignWin, MonthSnapshotEntity and Deposit had no events in that sample; their values are untested by that sample.
+`tests/verify-events.py` independently decodes raw Polygon logs and compares each exposed field with the GraphQL endpoint. The initial 100,000-block sample matched 2,450 records without differences. A recent sample matched another 962 records, including 102 campaign payouts. A monthly-snapshot block matched one snapshot. All 3,413 comparisons and accounting-query refusal checks passed. Deposit has no rows in the indexed history; its values have not had a live-data comparison.
 
 ```sh
 export NEST_ENDPOINT="https://subgraphs.nuthatch-indexer.com/subgraphs/id/QmbzwJnre963f9wT9VCJPede69vaniAKWVHzUEsAmBfrHG"
