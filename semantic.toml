@@ -1,0 +1,381 @@
+# semantic.toml - what this nest's data *means* (RFC-0016). Read by the MCP `schema`
+# tool, the admin UI, and the scaffolded skill. Edit descriptions freely; the
+# `[table.*.footguns]` are DERIVED from the ABI and regenerated - leave them be.
+
+schema_version = 1
+
+[nest]
+description = "The `ox-ai-pro-nest` nest on polygon. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__campaign_reward]
+description = "`CampaignReward(uint256,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per CampaignReward(uint256,uint256) event"
+
+[table.ox_ai_pro__campaign_reward.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__campaign_reward.footguns]
+big_ints = [
+    "userId",
+    "amount",
+]
+overflows_dec = [
+    "userId",
+    "amount",
+]
+
+[table.ox_ai_pro__director_claimed]
+description = "`DirectorClaimed(uint256,uint256,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per DirectorClaimed(uint256,uint256,uint256) event"
+
+[table.ox_ai_pro__director_claimed.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+monthId = "The `monthId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__director_claimed.footguns]
+big_ints = [
+    "userId",
+    "monthId",
+    "amount",
+]
+overflows_dec = [
+    "userId",
+    "monthId",
+    "amount",
+]
+
+[table.ox_ai_pro__director_eligibility_set]
+description = "`DirectorEligibilitySet(uint256,uint256,bool)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per DirectorEligibilitySet(uint256,uint256,bool) event"
+
+[table.ox_ai_pro__director_eligibility_set.columns]
+eligible = "The `eligible` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `eligible = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `eligible = 'true'` or `CAST(eligible AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+monthId = "The `monthId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__director_eligibility_set.footguns]
+big_ints = [
+    "userId",
+    "monthId",
+]
+overflows_dec = [
+    "userId",
+    "monthId",
+]
+bools = ["eligible"]
+
+[table.ox_ai_pro__director_locked]
+description = "`DirectorLocked(uint256,uint256,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per DirectorLocked(uint256,uint256,uint256) event"
+
+[table.ox_ai_pro__director_locked.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+monthId = "The `monthId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__director_locked.footguns]
+big_ints = [
+    "userId",
+    "monthId",
+    "amount",
+]
+overflows_dec = [
+    "userId",
+    "monthId",
+    "amount",
+]
+
+[table.ox_ai_pro__member_registered]
+description = "`MemberRegistered(uint256,address,uint256,bytes32)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per MemberRegistered(uint256,address,uint256,bytes32) event"
+
+[table.ox_ai_pro__member_registered.columns]
+emailHash = "The `emailHash` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+sponsorId = "The `sponsorId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+wallet = "The `wallet` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__member_registered.footguns]
+big_ints = [
+    "userId",
+    "sponsorId",
+]
+overflows_dec = [
+    "userId",
+    "sponsorId",
+]
+
+[table.ox_ai_pro__month_snapshot]
+description = "`MonthSnapshot(uint256,uint256,uint256,uint256,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per MonthSnapshot(uint256,uint256,uint256,uint256,uint256) event"
+
+[table.ox_ai_pro__month_snapshot.columns]
+ldCount = "The `ldCount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+ldDistributed = "The `ldDistributed` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+monthId = "The `monthId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rddCount = "The `rddCount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+rddDistributed = "The `rddDistributed` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__month_snapshot.footguns]
+big_ints = [
+    "monthId",
+    "rddDistributed",
+    "rddCount",
+    "ldDistributed",
+    "ldCount",
+]
+overflows_dec = [
+    "monthId",
+    "rddDistributed",
+    "rddCount",
+    "ldDistributed",
+    "ldCount",
+]
+
+[table.ox_ai_pro__origin_initialized]
+description = "`OriginInitialized(uint256,address)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per OriginInitialized(uint256,address) event"
+
+[table.ox_ai_pro__origin_initialized.columns]
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+wallet = "The `wallet` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__origin_initialized.footguns]
+big_ints = ["userId"]
+overflows_dec = ["userId"]
+
+[table.ox_ai_pro__p_b_sent]
+description = "`PBSent(uint256,uint256,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PBSent(uint256,uint256,uint256) event"
+
+[table.ox_ai_pro__p_b_sent.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+fromUserId = "The `fromUserId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+toUserId = "The `toUserId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__p_b_sent.footguns]
+big_ints = [
+    "fromUserId",
+    "toUserId",
+    "amount",
+]
+overflows_dec = [
+    "fromUserId",
+    "toUserId",
+    "amount",
+]
+
+[table.ox_ai_pro__p_b_transferred]
+description = "`PBTransferred(uint256,bytes32,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per PBTransferred(uint256,bytes32,uint256) event"
+
+[table.ox_ai_pro__p_b_transferred.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+fromUserId = "The `fromUserId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+toEmailHash = "The `toEmailHash` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__p_b_transferred.footguns]
+big_ints = [
+    "fromUserId",
+    "amount",
+]
+overflows_dec = [
+    "fromUserId",
+    "amount",
+]
+
+[table.ox_ai_pro__parked_p_b_claimed]
+description = "`ParkedPBClaimed(bytes32,uint256,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per ParkedPBClaimed(bytes32,uint256,uint256) event"
+
+[table.ox_ai_pro__parked_p_b_claimed.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+emailHash = "The `emailHash` bytes32 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__parked_p_b_claimed.footguns]
+big_ints = [
+    "userId",
+    "amount",
+]
+overflows_dec = [
+    "userId",
+    "amount",
+]
+
+[table.ox_ai_pro__rank_up]
+description = "`RankUp(uint256,uint8)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per RankUp(uint256,uint8) event"
+
+[table.ox_ai_pro__rank_up.columns]
+newRank = "The `newRank` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__rank_up.footguns]
+big_ints = ["userId"]
+overflows_dec = ["userId"]
+
+[table.ox_ai_pro__rdd_overflow_to_creator]
+description = "`RddOverflowToCreator(uint256,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per RddOverflowToCreator(uint256,uint256) event"
+
+[table.ox_ai_pro__rdd_overflow_to_creator.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+subscriberId = "The `subscriberId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__rdd_overflow_to_creator.footguns]
+big_ints = [
+    "subscriberId",
+    "amount",
+]
+overflows_dec = [
+    "subscriberId",
+    "amount",
+]
+
+[table.ox_ai_pro__reward_booked]
+description = "`RewardBooked(uint256,uint256,uint256,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per RewardBooked(uint256,uint256,uint256,uint256) event"
+
+[table.ox_ai_pro__reward_booked.columns]
+fromUserId = "The `fromUserId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+pb = "The `pb` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+pc = "The `pc` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+uplineId = "The `uplineId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__reward_booked.footguns]
+big_ints = [
+    "uplineId",
+    "pb",
+    "pc",
+    "fromUserId",
+]
+overflows_dec = [
+    "uplineId",
+    "pb",
+    "pc",
+    "fromUserId",
+]
+
+[table.ox_ai_pro__subscribed]
+description = "`Subscribed(uint256,address,uint256,uint256,uint8,bool,address,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per Subscribed(uint256,address,uint256,uint256,uint8,bool,address,uint256) event"
+
+[table.ox_ai_pro__subscribed.columns]
+currency = "The `currency` uint8 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+firstSub = "The `firstSub` bool parameter - stored as exact text `'true'`/`'false'`, not a SQL boolean. `firstSub = true` and `AND`/`NOT` implicitly cast and work; `COALESCE`, `CASE`, `bool_and`/`bool_or` and `UNION` do not. Write `firstSub = 'true'` or `CAST(firstSub AS BOOLEAN)`. (seeded from the ABI - edit semantic.toml to improve this)"
+sponsorId = "The `sponsorId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+tokenAmountIn = "The `tokenAmountIn` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+tokenIn = "The `tokenIn` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+usdValue = "The `usdValue` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+wallet = "The `wallet` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__subscribed.footguns]
+big_ints = [
+    "userId",
+    "sponsorId",
+    "usdValue",
+    "tokenAmountIn",
+]
+overflows_dec = [
+    "userId",
+    "sponsorId",
+    "usdValue",
+    "tokenAmountIn",
+]
+bools = ["firstSub"]
+
+[table.ox_ai_pro__usdt_deposited]
+description = "`UsdtDeposited(address,uint256,string)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per UsdtDeposited(address,uint256,string) event"
+
+[table.ox_ai_pro__usdt_deposited.columns]
+amount = "The `amount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+from = "The `from` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+message = "The `message` string parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__usdt_deposited.footguns]
+reserved_words = ["from"]
+big_ints = ["amount"]
+overflows_dec = ["amount"]
+
+[table.ox_ai_pro__withdraw_p_b]
+description = "`WithdrawPB(uint256,address,uint256,address,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per WithdrawPB(uint256,address,uint256,address,uint256) event"
+
+[table.ox_ai_pro__withdraw_p_b.columns]
+to = "The `to` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+tokenAmountOut = "The `tokenAmountOut` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+tokenOut = "The `tokenOut` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+usd = "The `usd` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__withdraw_p_b.footguns]
+reserved_words = ["to"]
+big_ints = [
+    "userId",
+    "usd",
+    "tokenAmountOut",
+]
+overflows_dec = [
+    "userId",
+    "usd",
+    "tokenAmountOut",
+]
+
+[table.ox_ai_pro__withdraw_p_b_as]
+description = "`WithdrawPBAs(uint256,address,uint256,address,uint256)` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per WithdrawPBAs(uint256,address,uint256,address,uint256) event"
+
+[table.ox_ai_pro__withdraw_p_b_as.columns]
+mainTokenAmount = "The `mainTokenAmount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+to = "The `to` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+tokenOut = "The `tokenOut` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+usd = "The `usd` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__withdraw_p_b_as.footguns]
+reserved_words = ["to"]
+big_ints = [
+    "userId",
+    "usd",
+    "mainTokenAmount",
+]
+overflows_dec = [
+    "userId",
+    "usd",
+    "mainTokenAmount",
+]
+
+[table.ox_ai_pro__withdraw_p_c]
+description = "`WithdrawPC(uint256,address,uint256,uint256,address[])` events emitted by the `ox_ai_pro` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per WithdrawPC(uint256,address,uint256,uint256,address[]) event"
+
+[table.ox_ai_pro__withdraw_p_c.columns]
+mainTokenAmount = "The `mainTokenAmount` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+to = "The `to` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+tokens = "The `tokens` address[] parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+usd = "The `usd` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+userId = "The `userId` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.ox_ai_pro__withdraw_p_c.footguns]
+reserved_words = ["to"]
+big_ints = [
+    "userId",
+    "usd",
+    "mainTokenAmount",
+]
+overflows_dec = [
+    "userId",
+    "usd",
+    "mainTokenAmount",
+]
+
+[view]
+
+# Authored views (views/*.sql) are described here so the MCP/`/schema` can render them:
+# [view.your_view_name]
+# description = "What this derivation computes."

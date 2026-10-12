@@ -1,0 +1,6 @@
+.nuthatch/
+data/
+*.log
+.env
+nuthatch.redb*
+segments/

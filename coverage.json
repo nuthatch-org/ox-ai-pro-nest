@@ -1,0 +1,46 @@
+{
+  "deployment": "QmbzwJnre963f9wT9VCJPede69vaniAKWVHzUEsAmBfrHG",
+  "immutable_entities": [
+    "subscription_event",
+    "reward",
+    "rank_up_event",
+    "campaign_win",
+    "deposit",
+    "month_snapshot_entity",
+    "transfer",
+    "withdrawal"
+  ],
+  "member_fields": [
+    "id"
+  ],
+  "refused_entities": [
+    "Global",
+    "DirectorReward",
+    "MemberMonthVolume"
+  ],
+  "mapping_functions": {
+    "getOrCreateMember": 3210,
+    "getGlobal": 3960,
+    "handleMemberRegistered": 4057,
+    "getOrCreateMemberMonthVolume": 4754,
+    "handleSubscribed": 4925,
+    "handleRewardBooked": 6069,
+    "handleParkedPBClaimed": 6414,
+    "handleRankUp": 6475,
+    "handleCampaignReward": 6714,
+    "getOrCreateDirectorReward": 7006,
+    "handleDirectorLocked": 7218,
+    "handleDirectorEligibilitySet": 7391,
+    "handleDirectorClaimed": 7469,
+    "handleMonthSnapshot": 7620,
+    "handlePBTransferred": 7983,
+    "handlePBSent": 8249,
+    "handleWithdrawPB": 8783,
+    "handleWithdrawPBAs": 9111,
+    "handleWithdrawPC": 9394,
+    "handleUsdtDeposited": 9678,
+    "handleRddOverflowToCreator": 9922,
+    "handleOriginInitialized": 10030
+  },
+  "source_format": "statically inspected compiled mapping; not original AssemblyScript"
+}

@@ -1,0 +1,1 @@
+{ deposits(first: 20, orderBy: block, orderDirection: desc) { id from amount message timestamp block txHash } }

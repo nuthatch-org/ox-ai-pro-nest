@@ -1,0 +1,5 @@
+-- Event-history subset. Mapping inspected statically; accumulated fields are absent.
+CREATE VIEW "withdrawal" AS
+SELECT tx_hash || '-' || CAST(log_index AS VARCHAR) AS id, block_timestamp AS timestamp, block_number AS block, tx_hash AS "txHash", "userId" AS member, "userId", 'PB' AS asset, 'USDT' AS kind, "to", usd AS amount, "tokenAmountOut" AS "usdtOut", "tokenOut" FROM ox_ai_pro__withdraw_p_b
+UNION ALL SELECT tx_hash || '-' || CAST(log_index AS VARCHAR) AS id, block_timestamp AS timestamp, block_number AS block, tx_hash AS "txHash", "userId" AS member, "userId", 'PB' AS asset, 'TOKEN' AS kind, "to", usd AS amount, CAST(NULL AS VARCHAR) AS "usdtOut", "tokenOut" FROM ox_ai_pro__withdraw_p_b_as
+UNION ALL SELECT tx_hash || '-' || CAST(log_index AS VARCHAR) AS id, block_timestamp AS timestamp, block_number AS block, tx_hash AS "txHash", "userId" AS member, "userId", 'PC' AS asset, 'PC' AS kind, "to", usd AS amount, CAST(NULL AS VARCHAR) AS "usdtOut", CAST(NULL AS VARCHAR) AS "tokenOut" FROM ox_ai_pro__withdraw_p_c;

@@ -1,0 +1,1 @@
+{ transfers(first: 20, orderBy: block, orderDirection: desc) { id kind fromMember { id } fromUserId toEmailHash toUserId toMember { id } amount timestamp block txHash } }

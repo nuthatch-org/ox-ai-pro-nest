@@ -1,0 +1,1 @@
+{ rankUpEvents(first: 20, orderBy: block, orderDirection: desc) { id member { id } newRank timestamp block txHash } }

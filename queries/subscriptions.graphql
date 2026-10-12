@@ -1,0 +1,1 @@
+{ _meta { block { number } } subscriptionEvents(first: 20, orderBy: block, orderDirection: desc) { id member { id } amount currency firstSub sponsorId timestamp block txHash } }

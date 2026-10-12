@@ -1,0 +1,1 @@
+{ rewards(first: 20, orderBy: timestamp, orderDirection: desc) { id upline { id } fromUserId pb pc timestamp txHash } }

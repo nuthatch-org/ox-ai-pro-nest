@@ -1,0 +1,1 @@
+{ withdrawals(first: 20, orderBy: block, orderDirection: desc) { id member { id } userId asset kind to amount usdtOut tokenOut timestamp block txHash } }

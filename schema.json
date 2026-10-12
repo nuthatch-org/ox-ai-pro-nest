@@ -1,0 +1,1295 @@
+{
+  "registry_hash": "0x6dd41bfef30bfd51a32ca6d8d7c18673ebc5d10a5c8ae0392955ae164b2f9216",
+  "tables": [
+    {
+      "table": "ox_ai_pro__campaign_reward",
+      "alias": "ox_ai_pro",
+      "event": "CampaignReward(uint256,uint256)",
+      "topic0": "0xdbf5dfc2bb09630b17a85a5a4753569e5348f6c5c7422b59defee8e92867f54c",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__director_claimed",
+      "alias": "ox_ai_pro",
+      "event": "DirectorClaimed(uint256,uint256,uint256)",
+      "topic0": "0xe53ca7bfbe39f19f1b29ca4a3b85f18f0c6ae5bc4ffe7eaf62dddad9d79656a2",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "monthId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__director_eligibility_set",
+      "alias": "ox_ai_pro",
+      "event": "DirectorEligibilitySet(uint256,uint256,bool)",
+      "topic0": "0x89a8f90e292b456e0aa727fcacefd30179ef1ed8e8ca498c3cc6211d27af0fef",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "monthId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "eligible",
+          "sol_type": "bool",
+          "storage": "bool",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__director_locked",
+      "alias": "ox_ai_pro",
+      "event": "DirectorLocked(uint256,uint256,uint256)",
+      "topic0": "0x1a7c8fdfb678fb7ac99f65ca2390b692f537343d1161c26616f4460dadac9a3f",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "monthId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__member_registered",
+      "alias": "ox_ai_pro",
+      "event": "MemberRegistered(uint256,address,uint256,bytes32)",
+      "topic0": "0x70e96ccce40efa215c009370c04a6ac76ea20887158537ec7d46e92dd57ee7c2",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "wallet",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": true
+        },
+        {
+          "name": "sponsorId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "emailHash",
+          "sol_type": "bytes32",
+          "storage": "fixed_bytes",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__month_snapshot",
+      "alias": "ox_ai_pro",
+      "event": "MonthSnapshot(uint256,uint256,uint256,uint256,uint256)",
+      "topic0": "0x75a1e12ebaa59cdfcd64387fa33b8e6ddcc6df1f12c6261efd6101cc5f013fce",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "monthId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "rddDistributed",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "rddCount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "ldDistributed",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "ldCount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__origin_initialized",
+      "alias": "ox_ai_pro",
+      "event": "OriginInitialized(uint256,address)",
+      "topic0": "0x3f59bffac4f0c6f30efe8937556fb60e99efaa67bb4bdc4298cc84d68e595c91",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "wallet",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__p_b_sent",
+      "alias": "ox_ai_pro",
+      "event": "PBSent(uint256,uint256,uint256)",
+      "topic0": "0x8f3a0b9c9b03fb72a0d2fc806801ad12974795f0f92a350821bb992994548090",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "fromUserId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "toUserId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__p_b_transferred",
+      "alias": "ox_ai_pro",
+      "event": "PBTransferred(uint256,bytes32,uint256)",
+      "topic0": "0x5ec9af4217bba623682483477beb820134aef09ddba72802c2b24ca7bfd73a0a",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "fromUserId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "toEmailHash",
+          "sol_type": "bytes32",
+          "storage": "fixed_bytes",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__parked_p_b_claimed",
+      "alias": "ox_ai_pro",
+      "event": "ParkedPBClaimed(bytes32,uint256,uint256)",
+      "topic0": "0x34171203d8820bbdcc41914260ffbb2e4743ce2741e4ad968b0c8051fd2901fb",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "emailHash",
+          "sol_type": "bytes32",
+          "storage": "fixed_bytes",
+          "indexed": true
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__rank_up",
+      "alias": "ox_ai_pro",
+      "event": "RankUp(uint256,uint8)",
+      "topic0": "0x55e6a699bf5cb1d8beed873ba21b93e7b36983f85aaf53516e6499e4401f7538",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "newRank",
+          "sol_type": "uint8",
+          "storage": "u64",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__rdd_overflow_to_creator",
+      "alias": "ox_ai_pro",
+      "event": "RddOverflowToCreator(uint256,uint256)",
+      "topic0": "0x2772e93133a35b69bf9b80b3f74ff8a5fb61cf899cf17dcde3f5a266f6687871",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "subscriberId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__reward_booked",
+      "alias": "ox_ai_pro",
+      "event": "RewardBooked(uint256,uint256,uint256,uint256)",
+      "topic0": "0xb8ba0926ac1bc8eccc4d431ca6c8c0284abed2fa0694bf933ebe76eb3df50bbe",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "uplineId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "pb",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "pc",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "fromUserId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__subscribed",
+      "alias": "ox_ai_pro",
+      "event": "Subscribed(uint256,address,uint256,uint256,uint8,bool,address,uint256)",
+      "topic0": "0xe0f8101670af13020f2c6151b396d88de44dfc9133ca33b61f2142911e69f951",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "wallet",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": true
+        },
+        {
+          "name": "sponsorId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "usdValue",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "currency",
+          "sol_type": "uint8",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "firstSub",
+          "sol_type": "bool",
+          "storage": "bool",
+          "indexed": false
+        },
+        {
+          "name": "tokenIn",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "tokenAmountIn",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__usdt_deposited",
+      "alias": "ox_ai_pro",
+      "event": "UsdtDeposited(address,uint256,string)",
+      "topic0": "0x2f15cbbd0ec6ce09691e6c739c8e9a53e29b1f587e1bcaf4ef3daaf2190215da",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "from",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "message",
+          "sol_type": "string",
+          "storage": "string",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__withdraw_p_b",
+      "alias": "ox_ai_pro",
+      "event": "WithdrawPB(uint256,address,uint256,address,uint256)",
+      "topic0": "0xcc6d5dc16bd760257578c98641a24f586e0b6153dea50106f9d058ebda5423a2",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "to",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": true
+        },
+        {
+          "name": "usd",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "tokenOut",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "tokenAmountOut",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__withdraw_p_b_as",
+      "alias": "ox_ai_pro",
+      "event": "WithdrawPBAs(uint256,address,uint256,address,uint256)",
+      "topic0": "0xcb1fb1182e6ad5bdd2703706106d9a8fbb078e5bfc9f7a0ea98ed6a2a4dc194d",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "to",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": true
+        },
+        {
+          "name": "usd",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "tokenOut",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "mainTokenAmount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        }
+      ]
+    },
+    {
+      "table": "ox_ai_pro__withdraw_p_c",
+      "alias": "ox_ai_pro",
+      "event": "WithdrawPC(uint256,address,uint256,uint256,address[])",
+      "topic0": "0xa75fd2e56c09de23d427d0f537e0bb75bb66f1525bcc15f2ad834c71593c59c3",
+      "columns": [
+        {
+          "name": "block_number",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "block_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "block_timestamp",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "tx_hash",
+          "sol_type": "implicit",
+          "storage": "bytes32",
+          "indexed": false
+        },
+        {
+          "name": "log_index",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "address",
+          "sol_type": "implicit",
+          "storage": "address",
+          "indexed": false
+        },
+        {
+          "name": "_seq",
+          "sol_type": "implicit",
+          "storage": "u64",
+          "indexed": false
+        },
+        {
+          "name": "userId",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": true
+        },
+        {
+          "name": "to",
+          "sol_type": "address",
+          "storage": "address",
+          "indexed": true
+        },
+        {
+          "name": "usd",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "mainTokenAmount",
+          "sol_type": "uint256",
+          "storage": "word32",
+          "indexed": false
+        },
+        {
+          "name": "tokens",
+          "sol_type": "address[]",
+          "storage": "json",
+          "indexed": false
+        }
+      ]
+    }
+  ]
+}

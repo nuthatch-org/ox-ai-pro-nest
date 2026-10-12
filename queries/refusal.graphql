@@ -1,0 +1,1 @@
+{ members(first: 1) { id totalPbEarned teamVolume } }

@@ -1,0 +1,174 @@
+"""Singleton global stats."""
+type Global @entity(immutable: false) {
+  id: ID!                       # "global"
+  totalMembers: Int!
+  totalSubscriptions: Int!
+  totalSubscribed: BigInt!      # gross sum of all subscription amounts (6dp)
+  totalRddOverflow: BigInt!     # Σ 5% RDD cut that overflowed to the creator (no RDD director)
+}
+
+"""A platform member (id = userId, decimal string)."""
+type Member @entity(immutable: false) {
+  id: ID!
+  userId: BigInt!
+  wallet: Bytes!
+  emailHash: Bytes!
+  sponsor: Member
+  sponsorId: BigInt!            # 0 = root (theOrigin)
+  rank: Int!                    # 1..6, updated on RankUp (theOrigin seeded at 6 via OriginInitialized)
+  isPlatformAccount: Boolean!   # theOrigin/creator — exempt from the §9 withdrawal/transfer card
+  registeredAt: BigInt!
+  registeredBlock: BigInt!
+
+  # ── lifetime earned (gross — never decreases on withdrawal) ──
+  totalAcEarned: BigInt!        # Σ own subscription amounts (AC granted = amount)
+  totalPbEarned: BigInt!        # differential PB + parked-claim + campaign + claimed director
+  totalPcEarned: BigInt!        # differential PC
+  ownVolume: BigInt!            # Σ own subscriptions
+
+  # ── true (uncapped) tree aggregates ──
+  directReferrals: Int!         # direct children
+  teamMembers: Int!             # all descendants
+  teamVolume: BigInt!           # Σ subscriptions by all descendants
+
+  subscriptionsCount: Int!
+  lastSubAmount: BigInt!
+  lastSubAt: BigInt!
+
+  # ── PB movement (out/in/withdrawn) — lets balance be reconciled vs lifetime earned ──
+  totalSentOut: BigInt!         # Σ PB transferred out (park-to-email + send-to-member)
+  totalReceivedIn: BigInt!      # Σ PB received via transferPBToUser (PBSent to this member)
+  totalWithdrawnPb: BigInt!     # Σ PB withdrawn (→ USDT or → OC/OXOX)
+  totalWithdrawnPc: BigInt!     # Σ PC withdrawn
+
+  subscriptions: [SubscriptionEvent!]! @derivedFrom(field: "member")
+  rewards: [Reward!]! @derivedFrom(field: "upline")
+  directorRewards: [DirectorReward!]! @derivedFrom(field: "member")
+  transfersOut: [Transfer!]! @derivedFrom(field: "fromMember")
+  transfersIn: [Transfer!]! @derivedFrom(field: "toMember")
+  withdrawals: [Withdrawal!]! @derivedFrom(field: "member")
+}
+
+"""One subscription event (first sub or renewal)."""
+type SubscriptionEvent @entity(immutable: true) {
+  id: ID!                       # txHash-logIndex
+  member: Member!
+  amount: BigInt!
+  currency: Int!                # 0 = USDT, 1 = PB
+  firstSub: Boolean!
+  sponsorId: BigInt!
+  timestamp: BigInt!
+  block: BigInt!
+  txHash: Bytes!
+}
+
+"""A differential reward booked to an upline from a downline subscription."""
+type Reward @entity(immutable: true) {
+  id: ID!                       # txHash-logIndex
+  upline: Member!
+  fromUserId: BigInt!
+  pb: BigInt!
+  pc: BigInt!
+  timestamp: BigInt!
+  txHash: Bytes!
+}
+
+"""A rank-up event — emitted each time a member's rank increases. Used to find the first members to
+   rank up within a lucky-draw cycle (ordered by timestamp)."""
+type RankUpEvent @entity(immutable: true) {
+  id: ID!                       # txHash-logIndex
+  member: Member!
+  newRank: Int!
+  timestamp: BigInt!
+  block: BigInt!
+  txHash: Bytes!
+}
+
+"""A campaign payout to a winner."""
+type CampaignWin @entity(immutable: true) {
+  id: ID!                       # txHash-logIndex
+  member: Member!
+  amount: BigInt!
+  timestamp: BigInt!
+  txHash: Bytes!
+}
+
+"""Per-director, per-month reward state (locked → eligible → claimed)."""
+type DirectorReward @entity(immutable: false) {
+  id: ID!                       # userId-monthId
+  member: Member!
+  monthId: BigInt!
+  amount: BigInt!               # locked amount (RDD + LD summed for theOrigin)
+  tier: Int!                    # member's RANK at snapshot: 5 = RDD ($25k gate), 6 = LD ($50k gate).
+                                # The eligibility bot uses this per-month so RDD→LD keeps each month's own threshold.
+  locked: Boolean!
+  eligible: Boolean!
+  claimed: Boolean!
+  claimedAmount: BigInt!
+  updatedAt: BigInt!
+}
+
+"""Per-member, per-month TEAM BUSINESS volume = own + full-downline subscriptions (incl. renewals) made
+   in that UTC calendar month. Drives the off-chain $25k (RDD) / $50k (LD) monthly eligibility gate that
+   unlocks a director's locked reward. Bucketed by the sub's TIMESTAMP, so it's independent of when the
+   month was snapshotted."""
+type MemberMonthVolume @entity(immutable: false) {
+  id: ID!                       # userId-monthId  (monthId = YYYYMM, UTC)
+  member: Member!
+  monthId: BigInt!              # YYYYMM
+  volume: BigInt!               # Σ own + downline subscriptions that month (6dp)
+}
+
+"""A monthly RDD/LD pool snapshot."""
+type MonthSnapshotEntity @entity(immutable: true) {
+  id: ID!                       # monthId
+  monthId: BigInt!
+  rddDistributed: BigInt!
+  rddCount: BigInt!
+  ldDistributed: BigInt!
+  ldCount: BigInt!
+  timestamp: BigInt!
+}
+
+"""A PB transfer OUT of a member: parked to an email (transferPB → PBTransferred)
+   or sent to an existing member (transferPBToUser → PBSent)."""
+type Transfer @entity(immutable: true) {
+  id: ID!                       # txHash-logIndex
+  kind: String!                 # "park" (to email) | "send" (to member)
+  fromMember: Member!
+  fromUserId: BigInt!
+  toEmailHash: Bytes            # set when kind = "park"
+  toUserId: BigInt              # set when kind = "send"
+  toMember: Member              # set when kind = "send"
+  amount: BigInt!
+  timestamp: BigInt!
+  block: BigInt!
+  txHash: Bytes!
+}
+
+"""A withdrawal of PB or PC out of the system."""
+type Withdrawal @entity(immutable: true) {
+  id: ID!                       # txHash-logIndex
+  member: Member!
+  userId: BigInt!
+  asset: String!                # "PB" | "PC"
+  kind: String!                 # "USDT" (WithdrawPB) | "TOKEN" (WithdrawPBAs) | "PC" (WithdrawPC)
+  to: Bytes!                    # recipient address
+  amount: BigInt!               # PB or PC burned (6dp)
+  usdtOut: BigInt               # set for WithdrawPB (USDT received)
+  tokenOut: Bytes               # set for WithdrawPBAs (token address)
+  timestamp: BigInt!
+  block: BigInt!
+  txHash: Bytes!
+}
+
+"""A USDT backing deposit (UsdtDeposited) — pure backing, not tied to a subscription."""
+type Deposit @entity(immutable: true) {
+  id: ID!                       # txHash-logIndex
+  from: Bytes!
+  amount: BigInt!
+  message: String!
+  timestamp: BigInt!
+  block: BigInt!
+  txHash: Bytes!
+}

@@ -1,0 +1,43 @@
+# nuthatch nest on polygon
+
+A self-hosted blockchain index. Query it locally; there is no third-party API.
+
+## Contracts
+- `ox_ai_pro` = 0x5f511f9ad5c7b3d68d1f86444a5b7a32459fbb5a
+
+## Tables (one per contract event)
+- `ox_ai_pro__campaign_reward` - CampaignReward(uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, userId, amount)
+- `ox_ai_pro__director_claimed` - DirectorClaimed(uint256,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, userId, monthId, amount)
+- `ox_ai_pro__director_eligibility_set` - DirectorEligibilitySet(uint256,uint256,bool) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, userId, monthId, eligible)
+- `ox_ai_pro__director_locked` - DirectorLocked(uint256,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, userId, monthId, amount)
+- `ox_ai_pro__member_registered` - MemberRegistered(uint256,address,uint256,bytes32) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, userId, wallet, sponsorId, emailHash)
+- `ox_ai_pro__month_snapshot` - MonthSnapshot(uint256,uint256,uint256,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, monthId, rddDistributed, rddCount, ldDistributed, ldCount)
+- `ox_ai_pro__origin_initialized` - OriginInitialized(uint256,address) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, userId, wallet)
+- `ox_ai_pro__p_b_sent` - PBSent(uint256,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, fromUserId, toUserId, amount)
+- `ox_ai_pro__p_b_transferred` - PBTransferred(uint256,bytes32,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, fromUserId, toEmailHash, amount)
+- `ox_ai_pro__parked_p_b_claimed` - ParkedPBClaimed(bytes32,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, emailHash, userId, amount)
+- `ox_ai_pro__rank_up` - RankUp(uint256,uint8) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, userId, newRank)
+- `ox_ai_pro__rdd_overflow_to_creator` - RddOverflowToCreator(uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, subscriberId, amount)
+- `ox_ai_pro__reward_booked` - RewardBooked(uint256,uint256,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, uplineId, pb, pc, fromUserId)
+- `ox_ai_pro__subscribed` - Subscribed(uint256,address,uint256,uint256,uint8,bool,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, userId, wallet, sponsorId, usdValue, currency, firstSub, tokenIn, tokenAmountIn)
+- `ox_ai_pro__usdt_deposited` - UsdtDeposited(address,uint256,string) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, from, amount, message)
+- `ox_ai_pro__withdraw_p_b` - WithdrawPB(uint256,address,uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, userId, to, usd, tokenOut, tokenAmountOut)
+- `ox_ai_pro__withdraw_p_b_as` - WithdrawPBAs(uint256,address,uint256,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, userId, to, usd, tokenOut, mainTokenAmount)
+- `ox_ai_pro__withdraw_p_c` - WithdrawPC(uint256,address,uint256,uint256,address[]) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, userId, to, usd, mainTokenAmount, tokens)
+
+## Live HTTP API (run `nuthatch dev`)
+- `GET /`                    index status
+- `GET /tables`              every table with its columns
+- `GET /table/{name}?limit=N` recent rows of one table (hot + sealed)
+- `GET /entity/{id}`         one row by id (`{block:012}-{logindex:06}`)
+- `GET /sql?q=SELECT...`     read-only SQL; each table is a view named `{alias}__{event}`, and each
+                             authored view (`views/*.sql`) answers by its own name
+- `GET /balances?limit=N`    top holder balances (when an ERC-20 Transfer table is present)
+- `GET /balance/{address}`   one address's derived balance
+- `GET /queries`             the mount's SQL mode and the queries its operator declared in
+                             `mounts.toml` (none on an open nest); `GET /q/{name}` runs one
+- `GET /derived`             the nest's incremental entities (`entities.toml`); `GET /derived/{entity}` reads one
+
+## MCP (for coding agents)
+Run `nuthatch mcp` (stdio) to expose tools: status, schema, tables, table, sql, entity,
+balance, top_balances. Fully offline against the local instance; nothing phones home.

@@ -1,0 +1,1 @@
+{ monthSnapshotEntities(first: 20, orderBy: monthId, orderDirection: desc) { id monthId rddDistributed rddCount ldDistributed ldCount timestamp } }
